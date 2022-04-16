@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1.csproj": {}
+    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1.csproj": {
+    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1.csproj",
-        "projectName": "Guglielmino.Jennifer.2E.TP1",
-        "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1.csproj",
+        "projectUniqueName": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj",
+        "projectName": "Entidades",
+        "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\jenni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\obj\\",
+        "outputPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

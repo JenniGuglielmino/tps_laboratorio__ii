@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\MiCalculadora\\MiCalculadora.csproj": {}
+    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\MiCalculadora\\MiCalculadora.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Entidades.csproj",
         "packagesPath": "C:\\Users\\jenni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -61,14 +61,14 @@
         }
       }
     },
-    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\MiCalculadora\\MiCalculadora.csproj": {
+    "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\MiCalculadora\\MiCalculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\MiCalculadora\\MiCalculadora.csproj",
+        "projectUniqueName": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\MiCalculadora\\MiCalculadora.csproj",
         "projectName": "MiCalculadora",
-        "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\MiCalculadora\\MiCalculadora.csproj",
+        "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\MiCalculadora\\MiCalculadora.csproj",
         "packagesPath": "C:\\Users\\jenni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\MiCalculadora\\obj\\",
+        "outputPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\MiCalculadora\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -88,8 +88,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Entidades\\Entidades.csproj"
+              "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\jenni\\source\\repos\\tps_laboratorio__ii\\TP1\\Guglielmino.Jennifer.2E.TP1\\Guglielmino.Jennifer.2E.TP1\\Entidades.csproj"
               }
             }
           }
