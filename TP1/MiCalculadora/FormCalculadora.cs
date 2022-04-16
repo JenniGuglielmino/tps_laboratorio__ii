@@ -28,6 +28,9 @@ namespace MiCalculadora
             this.Limpiar();
         }
 
+        /// <summary>
+        /// Limpia el resultado, los numeros y el operador seleccionado
+        /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Clear();
@@ -51,7 +54,8 @@ namespace MiCalculadora
                 }
                 else
                 {
-                    if (cmbOperador.SelectedIndex == 0)
+                    var prueba = cmbOperador.SelectedIndex;
+                    if (cmbOperador.SelectedIndex < 0)
                     {
                         operador = "+";
                     }
@@ -59,7 +63,7 @@ namespace MiCalculadora
                     {
                         operador = cmbOperador.SelectedItem.ToString();
                     }
-                    lblResultado.Text = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.SelectedItem.ToString()).ToString();
+                    lblResultado.Text = Operar(txtNumero1.Text, txtNumero2.Text, operador).ToString();
                     lstOperaciones.Items.Add(txtNumero1.Text + operador + txtNumero2.Text + "=" + lblResultado.Text);
                 }
             }
