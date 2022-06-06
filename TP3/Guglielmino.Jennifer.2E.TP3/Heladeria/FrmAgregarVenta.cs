@@ -1,5 +1,4 @@
-﻿using Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Heladeria
 {
-    public partial class FrmVentas : Form
+    public partial class FrmAgregarVenta : Form
     {
-        public FrmVentas()
+        public FrmAgregarVenta()
         {
             InitializeComponent();
-        }
-
-        void CargarVentas()
-        {
-            if (Venta.Ventas.Count > 0)
-            {
-                dgvVentas.DataSource = new List<Venta>(Venta.Ventas);
-            }
         }
     }
 }

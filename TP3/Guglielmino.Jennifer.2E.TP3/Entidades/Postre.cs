@@ -7,10 +7,10 @@ using Entidades.Enumerados;
 
 namespace Entidades
 {
-    class Postres : Producto, IPremiable
+    public class Postre : Producto, IPremiable
     {
         private int unidadesPorCaja;
-        public ETipoPoste tipo { get; set; }
+        public ETipoProducto tipo { get; set; }
 
         public int UnidadesPorCaja
         {
@@ -39,8 +39,10 @@ namespace Entidades
             throw new NotImplementedException();
         }
 
-        public Postres(int unidadesPorCaja)
+        public Postre(string nombre, string descripcion, int cantidad, double precio, float peso, ETipoProducto tipoProducto, int unidadesPorCaja)
+            :base(nombre, descripcion, cantidad, precio, peso, tipoProducto)
         {
+
             this.unidadesPorCaja = unidadesPorCaja;
         }
     }

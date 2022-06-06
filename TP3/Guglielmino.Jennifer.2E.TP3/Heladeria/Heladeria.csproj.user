@@ -4,7 +4,22 @@
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="FrmAgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAgregarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmEditarStock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmLogin.cs">

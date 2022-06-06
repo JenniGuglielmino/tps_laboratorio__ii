@@ -8,7 +8,7 @@ namespace Entidades
 {
     interface IVendibles
     {
-        public float Precio { get; set; }
+        public double Precio { get; set; }
         bool Vender();
     }
 }

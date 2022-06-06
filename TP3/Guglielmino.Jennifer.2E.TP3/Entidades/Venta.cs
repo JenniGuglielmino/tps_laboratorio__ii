@@ -6,19 +6,41 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Venta : IImprimible
+    public class Venta : IImprimible
     {
-        private int client;
-        private int vendedor;
+        private Cliente cliente;
+        private Empleado vendedor;
+        private static List<Venta> ventas;
+        private List<Producto> productos;
 
-        public Cliente Cliente { get; set; }
-        public Empleado Vendedor { get; set; }
-        public List<Producto> Productos { get; set; }
+        public Cliente Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
+        public Empleado Vendedor
+        {
+            get { return vendedor; }
+            set { vendedor = value; }
+        }
+        public static List<Venta> Ventas
+        {
+            get { return ventas; }
+            set { ventas = value; }
+        }
 
+        public List<Producto> Productos
+        {
+            get { return productos; }
+            set { productos = value; }
+        }
+
+        static Venta()
+        {
+            Ventas = new List<Venta>();
+        }
         public Venta()
         {
-            this.Productos = new List<Producto>();
-
         }
 
 

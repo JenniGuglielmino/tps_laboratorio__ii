@@ -137,6 +137,7 @@ namespace Heladeria {
             // 
             // FrmMenuPrincipal
             // 
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(810, 525);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnStock);
