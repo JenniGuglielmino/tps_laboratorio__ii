@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\FondoMenuPrincipal.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FondoMenuPrincipal.jpg">
+      <CustomToolNamespace></CustomToolNamespace>
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 

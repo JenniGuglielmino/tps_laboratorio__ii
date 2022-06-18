@@ -1,0 +1,11 @@
+Cliente: Maria
+Producto: Almendrado
+Unidades: 2
+Precio Unitario: 200
+Puntos acumulados: 8
+----------------------------
+Total a pagar: 400
+Fuiste atendido por: juan
+¡Gracias por tu compra!
+ 
+Frido

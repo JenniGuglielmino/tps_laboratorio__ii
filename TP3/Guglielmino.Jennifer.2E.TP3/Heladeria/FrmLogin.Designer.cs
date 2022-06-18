@@ -82,10 +82,11 @@ namespace Heladeria
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // Form1
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Heladeria.Properties.Resources.FondoMenuPrincipal;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtContrasenia);
@@ -93,7 +94,7 @@ namespace Heladeria
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblUsuario);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frido";
             this.ResumeLayout(false);

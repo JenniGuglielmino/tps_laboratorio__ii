@@ -17,3 +17,15 @@ C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\ref\Heladeria.dll
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.pdb
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.genruntimeconfig.cache
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmAgregarCliente.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmAgregarProducto.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmAgregarVenta.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmClientes.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmEditarCliente.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmEditarStock.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmLogin.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmMenuPrincipal.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmStock.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.FrmVentas.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.Properties.Resources.resources
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP3\Guglielmino.Jennifer.2E.TP3\Heladeria\obj\Debug\net5.0-windows\Heladeria.csproj.GenerateResource.cache
