@@ -64,6 +64,7 @@ namespace Heladeria {
         }
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.pContenido = new System.Windows.Forms.Panel();
             this.btnVolverLogin = new System.Windows.Forms.Button();
@@ -73,6 +74,10 @@ namespace Heladeria {
             this.btnStock = new System.Windows.Forms.Button();
             this.lblCantidadDeVentasTitulo = new System.Windows.Forms.Label();
             this.lblCantidadDeVentas = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // pContenido
@@ -197,5 +202,10 @@ namespace Heladeria {
 
         private System.Windows.Forms.Label lblCantidadDeVentasTitulo;
         private System.Windows.Forms.Label lblCantidadDeVentas;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.ComponentModel.IContainer components;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip4;
     }
 }

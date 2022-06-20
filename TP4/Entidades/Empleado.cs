@@ -45,11 +45,21 @@ namespace Entidades
             this.contrasenia = contrasenia;
         }
 
+        /// <summary>
+        /// Valida que la contraseña no ese vacia o contenga espacios al principio o al final
+        /// </summary>
+        /// <param name="contraseniaIngresada">Contraseña ingresada</param>
+        /// <returns>True si es valida, false si no lo es</returns>
         public bool ContraseniaCorrecta(string contraseniaIngresada)
         {
             return (!string.IsNullOrEmpty(contraseniaIngresada) && contraseniaIngresada.Trim() == contrasenia.Trim());
         }
-
+        /// <summary>
+        /// Permite el logueo del empleado comparando su contraseña y usuario
+        /// </summary>
+        /// <param name="usuario">Usuario ingresado</param>
+        /// <param name="contrasenia">Contraseña ingresada</param>
+        /// <returns>True si puede loguearse, false si no</returns>
         public static bool Login(string usuario, string contrasenia)
         {
             foreach (Empleado empleado in Empleados)
@@ -65,7 +75,14 @@ namespace Entidades
             }
             return false;
         }
-
+        /// <summary>
+        /// Realiza la venta
+        /// </summary>
+        /// <param name="producto">Producto a vender</param>
+        /// <param name="cliente">Cliente</param>
+        /// <param name="unidades">Cantidad de unidades a comprar</param>
+        /// <param name="outVenta">Salida de venta</param>
+        /// <returns>True si pudo realizar la venta, false si no pudo</returns>
         public bool Vender(Producto producto, Cliente cliente, int unidades, out Venta outVenta)
         {
             Venta auxVenta = new Venta(producto, cliente, unidades);

@@ -74,11 +74,20 @@ namespace Heladeria
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            Serializador<List<Cliente>> srl = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);
+            Task serializar = new Task(() =>
+            {
+                Serializador<List<Cliente>> srl = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);
             string ruta = CurrentDirectory;
             ruta += @"\ArchivosIniciales";
             string path = ruta + @"\CargaClientesInicial.json";
             srl.Escribir(Cliente.Clientes, path);
+            });
+            serializar.Start();
+            serializar.Wait();
+            MessageBox.Show("Descarga exitosa",
+                                       "Operacion exitosa",
+                                       MessageBoxButtons.OK);
+
         }
 
         private void btnCanjear_Click(object sender, EventArgs e)

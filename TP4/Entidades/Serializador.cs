@@ -12,13 +12,18 @@ namespace Entidades
 
         private IGuardable<T>.ETipoArchivo tipo;
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
         /// <param name="tipo"></param>
         public Serializador(IGuardable<T>.ETipoArchivo tipo)
         {
             this.tipo = tipo;
         }
+        /// <summary>
+        /// Metodo que escribe
+        /// </summary>
+        /// <param name="dato">Dato a escribir</param>
+        /// <param name="path">Path donde escribir</param>
         public void Escribir(T dato, string path)
         {
             try
@@ -58,9 +63,9 @@ namespace Entidades
             }
         }
         /// <summary>
-        /// 
+        /// Metodo para leer
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">De donde leer</param>
         /// <returns></returns>
         public T Leer(string path)
         {

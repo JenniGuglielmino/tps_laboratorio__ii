@@ -18,7 +18,11 @@ namespace Entidades
             command.CommandType = System.Data.CommandType.Text;
             command.Connection = connection;
         }
-
+        /// <summary>
+        /// Guarda una venta en la db
+        /// </summary>
+        /// <param name="venta">Venta a guardar</param>
+        /// <returns>true si pudo guardarse, false si no se pudo</returns>
         public static bool GuardarVenta(Venta venta)
         {
             try
@@ -33,16 +37,19 @@ namespace Entidades
             }
             catch (SqlException)
             {
-                //Agregar mensaje
-                return false;
+                throw new ErrorSqlException("Ocurrio un eror al intentar guardar en la base");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                throw new Exception("No pudo guardarse", ex);
             }
 
         }
-
+        /// <summary>
+        /// Modifica una venta especifica en la db
+        /// </summary>
+        /// <param name="venta">Venta a modificar</param>
+        /// <returns>true si fue exitoso, false si no lo fue</returns>
         public static bool ModificarVenta(Venta venta)
         {
             try
@@ -58,17 +65,18 @@ namespace Entidades
             }
             catch (SqlException)
             {
-                //Agregar mensaje
-                return false;
+                throw new ErrorSqlException("Ocurrio un eror al intentar modificar en la base");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Agregar mensaje
-                return false;
+                throw new Exception("No pudo modificarse", ex);
             }
 
         }
-
+        /// <summary>
+        /// Enlista las ventas que esten en la base
+        /// </summary>
+        /// <returns>Retorna la lista de las ventas</returns>
         public static List<Venta> LeerVentas()
         {
             List<Venta> ventas = new List<Venta>();
@@ -87,12 +95,12 @@ namespace Entidades
             }
             catch (SqlException)
             {
-                throw;
+                throw new ErrorSqlException("Ocurrio un eror al intentar modificar en la base");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw new Exception("No pudo obtenerse la lista", ex);
             }
         }
 

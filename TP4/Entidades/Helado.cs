@@ -1,10 +1,5 @@
 ﻿using Entidades.Enumerados;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Entidades
 {
@@ -18,6 +13,9 @@ namespace Entidades
             get { return bochas; }
             set { bochas = value; }
         }
+        /// <summary>
+        /// Sobreescribe para esta propiedad, devolviendo la cantidad de bochas de helado
+        /// </summary>
         public override string CantidadDeProductoPorUnidad { get { return $"Bochas: {bochas}"; } }
         public Helado()
         {

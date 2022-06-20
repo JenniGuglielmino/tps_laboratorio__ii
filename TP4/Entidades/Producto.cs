@@ -99,17 +99,32 @@ namespace Entidades
             this.Peso = peso;
             this.TipoProducto = tipoProducto;
         }
-
+        /// <summary>
+        /// Compara dos productos por su id
+        /// </summary>
+        /// <param name="producto1">Primer producto</param>
+        /// <param name="producto2">Segundo producto</param>
+        /// <returns>True si son iguales, false si no lo son</returns>
         public static bool operator ==(Producto producto1, Producto producto2)
         {
             return (producto1.Id == producto2.Id);
         }
-
+        /// <summary>
+        /// Compara dos productos por su id
+        /// </summary>
+        /// <param name="producto1">Primer producto</param>
+        /// <param name="producto2">Segundo producto</param>
+        /// <returns>True si no son iguales, false si lo son</returns>
         public static bool operator !=(Producto producto1, Producto producto2)
         {
             return !(producto1 == producto2);
         }
-
+        /// <summary>
+        /// Agrega un producto inexistente a una lista
+        /// </summary>
+        /// <param name="listaProductos">Lista de productos</param>
+        /// <param name="producto">Producto a agregar</param>
+        /// <returns>True si pudo agregarlo, false si no pudo</returns>
         public static bool operator +(List<Producto> listaProductos, Producto producto)
         {
             foreach (Producto producto1 in listaProductos)
@@ -122,7 +137,12 @@ namespace Entidades
             listaProductos.Add(producto);
             return true;
         }
-
+        /// <summary>
+        /// Quita a un producto existente de una lista
+        /// </summary>
+        /// <param name="listaProductos">Lista de productos</param>
+        /// <param name="Producto">Producto a quitar</param>
+        /// <returns>True si pudo quitarlo, false si no pudo</returns>
         public static bool operator -(List<Producto> listaProductos, Producto Producto)
         {
             bool removeOk = false;
@@ -136,7 +156,10 @@ namespace Entidades
             }
             return removeOk;
         }
-
+        /// <summary>
+        /// Carga inicial de productos desde un archivo
+        /// </summary>
+        /// <returns></returns>
         public static bool CargaProductosInicial()
         {
             Serializador<List<Producto>> serializador = new Serializador<List<Producto>>(IGuardable<List<Producto>>.ETipoArchivo.XML);

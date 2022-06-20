@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Exepcion que se lanza si el producto no cuenta con las unidades necesarias
+    /// </summary>
     public class ProductoSinUnidadesException : Exception
     {
         /// <summary>

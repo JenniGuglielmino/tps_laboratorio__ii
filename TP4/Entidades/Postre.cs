@@ -27,7 +27,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Sobreescribe para esta clase, devolviendo las unidades por caja como dato en el string en lugar de porciones o peso
+        /// Sobreescribe para esta propiedad, devolviendo las unidades por caja como dato en el string en lugar de porciones o peso
         /// </summary>
         public override string CantidadDeProductoPorUnidad { get { return $"Unidades: {UnidadesPorCaja}"; } }
 

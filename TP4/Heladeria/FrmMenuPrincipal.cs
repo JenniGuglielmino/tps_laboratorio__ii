@@ -17,6 +17,7 @@ namespace Heladeria
         {
             CerrarCallback = cerrarCallback;
             InitializeComponent();
+            //Estilos de botones
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.FlatAppearance.BorderSize = 0;
             btnStock.FlatStyle = FlatStyle.Flat;
@@ -27,6 +28,10 @@ namespace Heladeria
             btnSalir.FlatAppearance.BorderSize = 0;
             btnVolverLogin.FlatStyle = FlatStyle.Flat;
             btnVolverLogin.FlatAppearance.BorderSize = 0;
+            this.toolTip1.SetToolTip(this.btnClientes, "Clientes");
+            this.toolTip2.SetToolTip(this.btnVentas, "Ventas");
+            this.toolTip3.SetToolTip(this.btnStock, "Productos");
+            this.toolTip4.SetToolTip(this.btnVolverLogin, "Desloguearse");
             NucleoAplicacion.EmpleadoLogueado.ContarVentasEmpleado += SumarVenta;
             NucleoAplicacion.EmpleadoLogueado.ContarVentasEmpleado += ActualizarCantidadVentas;
         }
@@ -106,16 +111,21 @@ namespace Heladeria
             }
 
         }
-
+        /// <summary>
+        /// Metodo que suma las ventas
+        /// </summary>
         public void SumarVenta()
         {
             VentaPorSesion++;
         }
-
+        /// <summary>
+        /// Metodo que actualiza la cantidad de ventas en el label
+        /// </summary>
         public void ActualizarCantidadVentas()
         {
             lblCantidadDeVentas.Text = VentaPorSesion.ToString();
         }
+
         private void btnVolverLogin_Click(object sender, EventArgs e)
         {
             MostrarLogin = true;
@@ -126,8 +136,6 @@ namespace Heladeria
         {
             this.ChangeBody(new FrmVentas());
         }
-
-
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {

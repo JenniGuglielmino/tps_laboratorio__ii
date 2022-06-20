@@ -2,6 +2,12 @@
 {
     public static class ClienteExtensiones
     {
+        /// <summary>
+        /// Metodo de extension para la clase Cliente
+        /// </summary>
+        /// <param name="cliente">Cliente this</param>
+        /// <param name="producto">Producto por el cual quiera canjear</param>
+        /// <returns>true si pudo concretar el canje, false si no se pudo</returns>
         public static bool Canjear(this Cliente cliente, Producto producto)
         {
             bool canjeOk = false;

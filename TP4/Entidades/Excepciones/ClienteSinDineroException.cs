@@ -2,6 +2,9 @@
 
 namespace Entidades
 {
+    /// <summary>
+    /// Exepcion que se lanzara si el cliente no tiene dinero
+    /// </summary>
     public class ClienteSinDineroException : Exception
     {
         public string nombreCliente;

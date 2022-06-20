@@ -20,7 +20,9 @@ namespace Entidades
             get { return cantidadDePorciones; }
             set { cantidadDePorciones = value; }
         }
-
+        /// <summary>
+        /// Sobreescribe para esta propiedad, devolviendo porciones del prodcuto como dato en el string
+        /// </summary>
         public override string CantidadDeProductoPorUnidad { get { return $"Porciones: {cantidadDePorciones}"; } }
 
         public PizzaCongelada()

@@ -56,7 +56,12 @@ namespace Entidades
             currentId++;
             this.id = currentId;
         }
-
+        /// <summary>
+        /// Contructor con parametros
+        /// </summary>
+        /// <param name="nombre">Nombre del cliente</param>
+        /// <param name="apellido">Apellido del cliente</param>
+        /// <param name="saldo">Saldo con el que cuenta el cliente</param>
         public Cliente(string nombre, string apellido, double saldo): this()
         {
             this.nombre = nombre;
@@ -64,12 +69,39 @@ namespace Entidades
             this.saldo = saldo;
             
         }
-
+        /// <summary>
+        /// Contructor estatico
+        /// </summary>
         static Cliente()
         {
             Clientes = new List<Cliente>();
         }
-
+        /// <summary>
+        /// Compara dos clientes por su id
+        /// </summary>
+        /// <param name="cliente1">Primer cliente</param>
+        /// <param name="cliente2">Segundo cliente</param>
+        /// <returns>True si son iguales, false si no lo son</returns>
+        public static bool operator ==(Cliente cliente1, Cliente cliente2)
+        {
+            return (cliente1.Id == cliente2.Id);
+        }
+        /// <summary>
+        /// Compara dos clientes por su id
+        /// </summary>
+        /// <param name="cliente1">Primer cliente</param>
+        /// <param name="cliente2">Segundo cliente</param>
+        /// <returns>True no son iguales, false si lo son</returns>
+        public static bool operator !=(Cliente cliente1, Cliente cliente2)
+        {
+            return !(cliente1 == cliente2);
+        }
+        /// <summary>
+        /// Agrega un cliente a la lista de clientes si este no existe
+        /// </summary>
+        /// <param name="clientes">Lista de clientes</param>
+        /// <param name="cliente">Cliente a agregar</param>
+        /// <returns>True si pudo agregarlo, false si no pudo</returns>
         public static bool operator +(List<Cliente> clientes, Cliente cliente)
         {
             bool altaOk = false;
@@ -84,7 +116,9 @@ namespace Entidades
             altaOk = true;
             return altaOk;
         }
-
+        /// <summary>
+        /// Carga inicialmente clientes desde un archivo 
+        /// </summary>
         public static void CargaClientesInicial()
         {
             Serializador<List<Cliente>> serializador = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);

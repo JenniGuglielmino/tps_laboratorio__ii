@@ -2,6 +2,9 @@
 
 namespace Entidades
 {
+    /// <summary>
+    /// Exepcion que se lanzara si el cliente no tiene puntos suficientes 
+    /// </summary>
     public class ClienteSinPuntosException : Exception
     {
         public string nombreCliente;

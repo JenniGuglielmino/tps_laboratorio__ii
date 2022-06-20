@@ -3,7 +3,9 @@ using System.Runtime.Serialization;
 
 namespace Entidades
 {
-    [Serializable]
+    /// <summary>
+    /// Exepcion que se lanza si la extension indicada para la serializacion es invalida o inexistente
+    /// </summary>
     internal class ExtensionInvalidaException : Exception
     {
         public ExtensionInvalidaException()
