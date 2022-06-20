@@ -1,18 +1,14 @@
 ﻿using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Heladeria
 {
     public partial class FrmAgregarCliente : Form
     {
+        string nombre;
+        string apellido;
+        double saldo;
         public FrmAgregarCliente()
         {
             InitializeComponent();
@@ -25,14 +21,8 @@ namespace Heladeria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string nombre;
-            string apellido;
-            double saldo;
-
-            nombre = this.txtNombreCliente.Text;
-            apellido = this.txtApellidoCliente.Text;
-            saldo = double.Parse(this.txtSaldoCliente.Text);
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || saldo < 1)
+            if (string.IsNullOrEmpty(this.txtNombreCliente.Text) || string.IsNullOrEmpty(this.txtApellidoCliente.Text) || saldo < 1
+                || string.IsNullOrEmpty(this.txtSaldoCliente.Text))
             {
                 MessageBox.Show("Todos los campos son requeridos",
                                       "Error",
@@ -40,6 +30,9 @@ namespace Heladeria
             }
             else
             {
+                nombre = this.txtNombreCliente.Text;
+                apellido = this.txtApellidoCliente.Text;
+                saldo = double.Parse(this.txtSaldoCliente.Text);
                 Cliente auxCliente = new Cliente(nombre, apellido, saldo);
                 bool altaOk = Cliente.Clientes + auxCliente;
                 if (altaOk)

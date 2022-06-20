@@ -11,18 +11,11 @@ namespace Entidades
         private static List<Venta> ventas;
         private Producto producto;
         private int cantidadProductos;
-        private static int currentId;
 
         public int Id
         {
             get { return id; }
             set { id = value; }
-        }
-
-        public static int CurrentId
-        {
-            get { return currentId; }
-            set { currentId = value; }
         }
 
         public Cliente Cliente
@@ -61,16 +54,57 @@ namespace Entidades
         {
             Ventas = new List<Venta>();
         }
-
         public Venta()
         {
 
         }
 
+        /// <summary>
+        /// Constructor con id autoincremental para la creacion
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <param name="cliente"></param>
+        /// <param name="cantidadProductos"></param>
         public Venta(Producto producto, Cliente cliente, int cantidadProductos)
         {
-            this.Id = ++currentId;
-            CurrentId = this.Id;
+            PoblarDatosVenta(producto, cliente, cantidadProductos);
+        }
+        /// <summary>
+        /// Constructor con id para leer de sql
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="producto"></param>
+        /// <param name="cliente"></param>
+        /// <param name="cantidadProductos"></param>
+        public Venta(int id, int productoId, int clienteId, int cantidadProductos)
+        {
+            this.Id = id;
+            Producto producto = null;
+            Cliente cliente = null;
+            foreach (Producto prod in Producto.Productos)
+            {
+                if (prod.Id == productoId)
+                {
+                    producto = prod;
+                }
+            }
+            foreach (Cliente cli in Cliente.Clientes)
+            {
+                if (cli.Id == clienteId)
+                {
+                    cliente = cli;
+                }
+            }
+            PoblarDatosVenta(producto, cliente, cantidadProductos);
+        }
+        /// <summary>
+        /// Funcion para settear los valores comunes de ventas
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <param name="cliente"></param>
+        /// <param name="cantidadProductos"></param>
+        public void PoblarDatosVenta(Producto producto, Cliente cliente, int cantidadProductos)
+        {
             this.Producto = producto;
             this.Cliente = cliente;
             this.CantidadProductos = cantidadProductos;
@@ -100,6 +134,7 @@ namespace Entidades
         {
             return $"{this.ObtenerTicket()} \n{firma}";
         }
+
 
         public static explicit operator string(Venta venta)
         {

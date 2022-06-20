@@ -88,6 +88,12 @@ C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-w
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\Heladeria.dll
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\ref\Heladeria.dll
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\Heladeria.pdb
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\Entidades.dll
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\bin\Debug\net5.0-windows\Entidades.pdb
 C:\Users\jenni\source\repos\tps_laboratorio__ii\TP4\Heladeria\obj\Debug\net5.0-windows\Heladeria.csproj.AssemblyReference.cache

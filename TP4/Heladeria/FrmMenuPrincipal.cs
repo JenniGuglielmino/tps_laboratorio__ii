@@ -6,9 +6,16 @@ namespace Heladeria
 {
     public partial class FrmMenuPrincipal : Form
     {
-        public FrmMenuPrincipal()
-        {
+        public delegate void CerrarForm();
 
+        public CerrarForm CerrarCallback { get; set; }
+
+        public bool MostrarLogin { get; set; }
+        public int VentaPorSesion { get; set; }
+
+        public FrmMenuPrincipal(CerrarForm cerrarCallback)
+        {
+            CerrarCallback = cerrarCallback;
             InitializeComponent();
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.FlatAppearance.BorderSize = 0;
@@ -20,6 +27,8 @@ namespace Heladeria
             btnSalir.FlatAppearance.BorderSize = 0;
             btnVolverLogin.FlatStyle = FlatStyle.Flat;
             btnVolverLogin.FlatAppearance.BorderSize = 0;
+            NucleoAplicacion.EmpleadoLogueado.ContarVentasEmpleado += SumarVenta;
+            NucleoAplicacion.EmpleadoLogueado.ContarVentasEmpleado += ActualizarCantidadVentas;
         }
 
         /// <summary>
@@ -67,9 +76,9 @@ namespace Heladeria
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            MostrarLogin = false;
             this.Close();
         }
-
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Seguro que desea salir?",
@@ -78,21 +87,39 @@ namespace Heladeria
             {
                 e.Cancel = true;
             }
-            else 
+            else
             {
-                FrmLogin.LoginForm.Close();
+                NucleoAplicacion.EmpleadoLogueado.ContarVentasEmpleado -= SumarVenta;
+                NucleoAplicacion.EmpleadoLogueado.ContarVentasEmpleado -= ActualizarCantidadVentas;
+                NucleoAplicacion.EmpleadoLogueado = null;
+                if (MostrarLogin)
+                {
+                    FrmLogin.LoginForm.Show();
+                }
+                else 
+                { 
+                    if(CerrarCallback != null)
+                    {
+                        CerrarCallback();
+                    }
+                }
             }
+
         }
 
+        public void SumarVenta()
+        {
+            VentaPorSesion++;
+        }
+
+        public void ActualizarCantidadVentas()
+        {
+            lblCantidadDeVentas.Text = VentaPorSesion.ToString();
+        }
         private void btnVolverLogin_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que desea cerrar su sesion?",
-                                   "Confirmacion",
-                                   MessageBoxButtons.YesNo) == DialogResult.Yes)
-            { 
-                FrmLogin.LoginForm.Show();
-                this.Close();
-            }
+            MostrarLogin = true;
+            this.Close();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
@@ -100,10 +127,13 @@ namespace Heladeria
             this.ChangeBody(new FrmVentas());
         }
 
+
+
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             Cliente.CargaClientesInicial();
             Producto.CargaProductosInicial();
+            lblCantidadDeVentas.Text = "0";
         }
     }
 }

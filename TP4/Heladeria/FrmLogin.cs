@@ -42,7 +42,7 @@ namespace Heladeria
             }
             if (Empleado.Login(txtUsuario.Text, txtContrasenia.Text))
             {
-                FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal();
+                FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal(AlCerrarCallback);
                 menuPrincipal.Show();
                 this.Hide();
             }
@@ -54,6 +54,11 @@ namespace Heladeria
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AlCerrarCallback()
         {
             this.Close();
         }

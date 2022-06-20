@@ -27,16 +27,10 @@ namespace Heladeria
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            cantidad = int.Parse(this.txtCantidad.Text);
-            tipoProducto = (ETipoProducto)this.cmbTipoProducto.SelectedItem;
-            precio = double.Parse(this.txtPrecio.Text);
-            descripcion = this.txtDescripcion.Text;
-            peso = float.Parse(this.txtPrecio.Text);
-            nombre = this.txtNombre.Text;
-            unidadesPorCaja = int.Parse(this.txtUnidades.Text);
             bool altaOk = false;
-
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(descripcion) || peso < 1 || cantidad < 1)
+            if (string.IsNullOrEmpty(this.txtCantidad.Text) || string.IsNullOrEmpty(this.txtPrecio.Text)
+                || string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtPrecio.Text)
+                || string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtUnidades.Text))
             {
                 MessageBox.Show("Todos los campos son requeridos",
                                       "Error",
@@ -44,6 +38,13 @@ namespace Heladeria
             }
             else
             {
+                cantidad = int.Parse(this.txtCantidad.Text);
+                tipoProducto = (ETipoProducto)this.cmbTipoProducto.SelectedItem;
+                precio = double.Parse(this.txtPrecio.Text);
+                descripcion = this.txtDescripcion.Text;
+                peso = float.Parse(this.txtPrecio.Text);
+                nombre = this.txtNombre.Text;
+                unidadesPorCaja = int.Parse(this.txtUnidades.Text);
                 if (tipoProducto.ToString() == "Postre")
                 {
                     Postre auxProducto = new Postre(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
@@ -155,21 +156,6 @@ namespace Heladeria
                                          MessageBoxButtons.OK);
                 }
             }
-        }
-
-        private void lblUnidades_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPesoProducto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

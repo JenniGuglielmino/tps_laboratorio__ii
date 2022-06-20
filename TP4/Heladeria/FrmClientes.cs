@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Environment;
 
@@ -28,12 +29,19 @@ namespace Heladeria
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Form form = new FrmAgregarCliente();
-            DialogResult dialogRes = form.ShowDialog();
-            if (dialogRes != DialogResult.None)
+            Task.Run(() =>
             {
-                CargarClientes();
-            }
+                dgvListaClientes.BeginInvoke((MethodInvoker)delegate () { 
+                    dgvListaClientes.Visible = true;
+                    Form form = new FrmAgregarCliente();
+                    DialogResult dialogRes = form.ShowDialog();
+                    if (dialogRes != DialogResult.None)
+                    {
+                        CargarClientes();
+                    }
+                });
+                
+            });
         }
         void CargarClientes()
         {

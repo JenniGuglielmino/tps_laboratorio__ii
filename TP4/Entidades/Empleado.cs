@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Entidades
 {
     public class Empleado
     {
+        public event Action ContarVentasEmpleado;
+
         int id;
         string usuario;
         string contrasenia;
@@ -74,6 +77,7 @@ namespace Entidades
                     altaOk = Venta.Ventas + auxVenta;
                     if (altaOk)
                     {
+                        ContarVentasEmpleado?.Invoke();
                         cliente.Saldo -= auxVenta.TotalAPagar;
                         producto.Cantidad -= unidades;
                         cliente.Puntos += auxVenta.CargarPuntos(auxVenta.TotalAPagar);
@@ -91,7 +95,5 @@ namespace Entidades
             outVenta = auxVenta;
             return altaOk;
         }
-
-
     }
 }

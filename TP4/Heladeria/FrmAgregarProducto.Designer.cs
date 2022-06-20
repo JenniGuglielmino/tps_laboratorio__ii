@@ -163,7 +163,6 @@ namespace Heladeria
             this.label5.Size = new System.Drawing.Size(40, 15);
             this.label5.TabIndex = 12;
             this.label5.Text = "Precio";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblUnidades
             // 
@@ -173,7 +172,6 @@ namespace Heladeria
             this.lblUnidades.Size = new System.Drawing.Size(59, 15);
             this.lblUnidades.TabIndex = 13;
             this.lblUnidades.Text = "Porciones";
-            this.lblUnidades.Click += new System.EventHandler(this.lblUnidades_Click);
             // 
             // txtPesoProducto
             // 
@@ -191,7 +189,6 @@ namespace Heladeria
             this.lblPesoProducto.Size = new System.Drawing.Size(32, 15);
             this.lblPesoProducto.TabIndex = 15;
             this.lblPesoProducto.Text = "Peso";
-            this.lblPesoProducto.Click += new System.EventHandler(this.lblPesoProducto_Click);
             // 
             // FrmAgregarProducto
             // 

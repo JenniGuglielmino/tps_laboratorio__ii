@@ -71,6 +71,8 @@ namespace Heladeria {
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
+            this.lblCantidadDeVentasTitulo = new System.Windows.Forms.Label();
+            this.lblCantidadDeVentas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pContenido
@@ -150,10 +152,33 @@ namespace Heladeria {
             this.btnStock.UseVisualStyleBackColor = false;
             this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
+            // lblCantidadDeVentasTitulo
+            // 
+            this.lblCantidadDeVentasTitulo.AutoSize = true;
+            this.lblCantidadDeVentasTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCantidadDeVentasTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblCantidadDeVentasTitulo.Location = new System.Drawing.Point(53, 25);
+            this.lblCantidadDeVentasTitulo.Name = "lblCantidadDeVentasTitulo";
+            this.lblCantidadDeVentasTitulo.Size = new System.Drawing.Size(145, 21);
+            this.lblCantidadDeVentasTitulo.TabIndex = 6;
+            this.lblCantidadDeVentasTitulo.Text = "Cantidad de ventas:";
+            // 
+            // lblCantidadDeVentas
+            // 
+            this.lblCantidadDeVentas.AutoSize = true;
+            this.lblCantidadDeVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCantidadDeVentas.ForeColor = System.Drawing.Color.White;
+            this.lblCantidadDeVentas.Location = new System.Drawing.Point(198, 25);
+            this.lblCantidadDeVentas.Name = "lblCantidadDeVentas";
+            this.lblCantidadDeVentas.Size = new System.Drawing.Size(0, 21);
+            this.lblCantidadDeVentas.TabIndex = 7;
+            // 
             // FrmMenuPrincipal
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(114)))), ((int)(((byte)(178)))));
             this.ClientSize = new System.Drawing.Size(810, 525);
+            this.Controls.Add(this.lblCantidadDeVentas);
+            this.Controls.Add(this.lblCantidadDeVentasTitulo);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnVentas);
@@ -166,7 +191,11 @@ namespace Heladeria {
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
+
+        private System.Windows.Forms.Label lblCantidadDeVentasTitulo;
+        private System.Windows.Forms.Label lblCantidadDeVentas;
     }
 }

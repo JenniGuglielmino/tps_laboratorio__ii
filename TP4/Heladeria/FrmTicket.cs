@@ -1,6 +1,8 @@
 ﻿using Entidades;
 using System;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Environment;
 
@@ -20,11 +22,17 @@ namespace Heladeria
                 this.ticketBody = value;
             }
         }
+
+
         public FrmTicket(string ticket)
         {
             InitializeComponent();
             this.TicketBody = ticket;
+
+
         }
+
+
 
         private void FrmTicket_Load(object sender, EventArgs e)
         {
@@ -36,7 +44,7 @@ namespace Heladeria
             try
             {
                 ArchivoTexto archivo = new ArchivoTexto();
-                string ruta = Environment.CurrentDirectory;
+                string ruta = CurrentDirectory;
                 ruta += @"\Tickets";
                 string path = ruta + @"\Ticket" + DateTime.Now.ToString("HH_mm_ss") + ".txt";
                 if (!Directory.Exists(ruta))
@@ -49,7 +57,7 @@ namespace Heladeria
                                         MessageBoxButtons.OK);
                 this.Close();
             }
-            catch(ArchivoSinPermisosException ex)
+            catch (ArchivoSinPermisosException ex)
             {
                 MessageBox.Show(ex.Message,
                                      "Error",

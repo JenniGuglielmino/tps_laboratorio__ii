@@ -1,4 +1,6 @@
-﻿namespace Entidades
+﻿using System;
+
+namespace Entidades
 {
     public static class NucleoAplicacion
     {
