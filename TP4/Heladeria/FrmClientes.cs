@@ -31,7 +31,8 @@ namespace Heladeria
         {
             Task.Run(() =>
             {
-                dgvListaClientes.BeginInvoke((MethodInvoker)delegate () { 
+                dgvListaClientes.BeginInvoke((MethodInvoker)delegate ()
+                {
                     dgvListaClientes.Visible = true;
                     Form form = new FrmAgregarCliente();
                     DialogResult dialogRes = form.ShowDialog();
@@ -40,11 +41,12 @@ namespace Heladeria
                         CargarClientes();
                     }
                 });
-                
+
             });
         }
         void CargarClientes()
         {
+            Cliente.CargaClientesInicial();
             if (Cliente.Clientes.Count > 0)
             {
                 dgvListaClientes.DataSource = new List<Cliente>(Cliente.Clientes);
@@ -54,7 +56,6 @@ namespace Heladeria
         private void FrmClientes_Load(object sender, EventArgs e)
         {
             CargarClientes();
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -77,10 +78,10 @@ namespace Heladeria
             Task serializar = new Task(() =>
             {
                 Serializador<List<Cliente>> srl = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);
-            string ruta = CurrentDirectory;
-            ruta += @"\ArchivosIniciales";
-            string path = ruta + @"\CargaClientesInicial.json";
-            srl.Escribir(Cliente.Clientes, path);
+                string ruta = CurrentDirectory;
+                ruta += @"\ArchivosIniciales";
+                string path = ruta + @"\CargaClientesInicial.json";
+                srl.Escribir(Cliente.Clientes, path);
             });
             serializar.Start();
             serializar.Wait();

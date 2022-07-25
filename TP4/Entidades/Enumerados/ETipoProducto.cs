@@ -5,8 +5,8 @@
     /// </summary>
     public enum ETipoProducto
     {
-        Postre,
-        Helado,
-        Pizza_congelada,
+        Postre = 1,
+        Helado = 2,
+        Pizza_congelada = 3,
     }
 }

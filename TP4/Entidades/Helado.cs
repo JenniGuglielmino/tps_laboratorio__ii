@@ -21,8 +21,13 @@ namespace Entidades
         {
 
         }
+        public Helado(int id, string nombre, string descripcion, int cantidad, double precio, float peso, int tipoProductoId, int bochas)
+            : base(id, nombre, descripcion, cantidad, precio, peso, tipoProductoId)
+        {
+            this.Bochas = bochas;
+        }
         public Helado(string nombre, string descripcion, int cantidad, double precio, float peso, ETipoProducto tipoProducto, int bochas)
-            : base(nombre, descripcion, cantidad, precio, peso, tipoProducto)
+    : base(nombre, descripcion, cantidad, precio, peso, tipoProducto)
         {
             this.Bochas = bochas;
         }

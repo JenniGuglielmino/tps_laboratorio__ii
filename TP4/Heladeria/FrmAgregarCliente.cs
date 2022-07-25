@@ -21,7 +21,7 @@ namespace Heladeria
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtNombreCliente.Text) || string.IsNullOrEmpty(this.txtApellidoCliente.Text) || saldo < 1
+            if (string.IsNullOrEmpty(this.txtNombreCliente.Text) || string.IsNullOrEmpty(this.txtApellidoCliente.Text)
                 || string.IsNullOrEmpty(this.txtSaldoCliente.Text))
             {
                 MessageBox.Show("Todos los campos son requeridos",
@@ -33,8 +33,8 @@ namespace Heladeria
                 nombre = this.txtNombreCliente.Text;
                 apellido = this.txtApellidoCliente.Text;
                 saldo = double.Parse(this.txtSaldoCliente.Text);
-                Cliente auxCliente = new Cliente(nombre, apellido, saldo);
-                bool altaOk = Cliente.Clientes + auxCliente;
+                Cliente auxCliente = new Cliente(nombre, apellido, saldo, 0);
+                bool altaOk = AccesoSql.GuardarCliente(auxCliente);
                 if (altaOk)
                 {
                     MessageBox.Show("Alta de cliente exitosa",

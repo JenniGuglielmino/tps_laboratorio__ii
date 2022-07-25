@@ -28,7 +28,8 @@ namespace Heladeria
 
         void CargarProductos()
         {
-            if (Producto.Productos.Count > -1)
+            Producto.CargaProductosInicial();
+            if (Producto.Productos.Count > 0)
             {
                 dgvStock.DataSource = new List<Producto>(Producto.Productos);
             }

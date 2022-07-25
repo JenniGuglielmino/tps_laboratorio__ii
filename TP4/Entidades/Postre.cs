@@ -42,8 +42,15 @@ namespace Entidades
 
         }
 
+        public Postre(int id, string nombre, string descripcion, int cantidad, double precio, float peso, int tipoProductoId, int unidadesPorCaja)
+            :base(id, nombre, descripcion, cantidad, precio, peso, tipoProductoId)
+        {
+
+            this.unidadesPorCaja = unidadesPorCaja;
+            this.costoEnPuntos = 400;
+        }
         public Postre(string nombre, string descripcion, int cantidad, double precio, float peso, ETipoProducto tipoProducto, int unidadesPorCaja)
-            :base(nombre, descripcion, cantidad, precio, peso, tipoProducto)
+            : base(nombre, descripcion, cantidad, precio, peso, tipoProducto)
         {
 
             this.unidadesPorCaja = unidadesPorCaja;

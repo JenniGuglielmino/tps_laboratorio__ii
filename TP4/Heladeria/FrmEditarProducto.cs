@@ -77,7 +77,8 @@ namespace Heladeria
                     {
                         if (Producto.Productos[i] == productoSeleccionado)
                         {
-                            Producto.Productos[i] = auxProducto;
+                            AccesoSql.ModificarProducto(auxProducto);
+                            //Producto.Productos[i] = auxProducto;
                             MessageBox.Show("Producto editado con exito",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);
@@ -93,7 +94,7 @@ namespace Heladeria
                     {
                         if (Producto.Productos[i] == productoSeleccionado)
                         {
-                            Producto.Productos[i] = auxProducto;
+                            AccesoSql.ModificarProducto(auxProducto);
                             MessageBox.Show("Producto editado con exito",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);
@@ -109,7 +110,7 @@ namespace Heladeria
                     {
                         if (Producto.Productos[i] == productoSeleccionado)
                         {
-                            Producto.Productos[i] = auxProducto;
+                            AccesoSql.ModificarProducto(auxProducto);
                             MessageBox.Show("Producto editado con exito",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);

@@ -98,6 +98,7 @@ namespace Entidades
                         cliente.Saldo -= auxVenta.TotalAPagar;
                         producto.Cantidad -= unidades;
                         cliente.Puntos += auxVenta.CargarPuntos(auxVenta.TotalAPagar);
+                        AccesoSql.ModificarCliente(cliente);
                     }
                 }
                 else

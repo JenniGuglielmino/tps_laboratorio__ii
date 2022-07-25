@@ -141,6 +141,7 @@ namespace Heladeria
         {
             Cliente.CargaClientesInicial();
             Producto.CargaProductosInicial();
+            Venta.CargaVentasInicial();
             lblCantidadDeVentas.Text = "0";
         }
     }

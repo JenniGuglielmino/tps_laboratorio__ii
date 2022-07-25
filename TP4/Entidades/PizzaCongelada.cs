@@ -29,6 +29,12 @@ namespace Entidades
         {
         }
 
+        public PizzaCongelada(int id, string nombre, string descripcion, int cantidad, double precio, float peso, int tipoProductoId, int cantidadDePorciones)
+            : base(id, nombre, descripcion, cantidad, precio, peso, tipoProductoId)
+        {
+            this.CostoEnPuntos = 300;
+            this.CantidadDePorciones = cantidadDePorciones;
+        }
         public PizzaCongelada(string nombre, string descripcion, int cantidad, double precio, float peso, ETipoProducto tipoProducto, int cantidadDePorciones)
             : base(nombre, descripcion, cantidad, precio, peso, tipoProducto)
         {

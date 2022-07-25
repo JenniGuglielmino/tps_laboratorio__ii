@@ -75,6 +75,7 @@ namespace Heladeria
                         unidades, out auxVenta);
                     if (ventaOk)
                     {
+                        AccesoSql.GuardarVenta(auxVenta);
                         MessageBox.Show("Venta guardada correctamente",
                                         "Operacion exitosa",
                                         MessageBoxButtons.OK);

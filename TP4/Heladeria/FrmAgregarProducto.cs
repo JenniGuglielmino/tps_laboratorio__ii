@@ -48,17 +48,17 @@ namespace Heladeria
                 if (tipoProducto.ToString() == "Postre")
                 {
                     Postre auxProducto = new Postre(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
-                    altaOk = Producto.Productos + auxProducto;
+                    altaOk = AccesoSql.GuardarProducto(auxProducto);
                 }
                 else if (tipoProducto.ToString() == "Helado")
                 {
                     Helado auxProducto = new Helado(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
-                    altaOk = Producto.Productos + auxProducto;
+                    altaOk = AccesoSql.GuardarProducto(auxProducto);
                 }
                 else
                 {
                     PizzaCongelada auxProducto = new PizzaCongelada(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
-                    altaOk = Producto.Productos + auxProducto;
+                    altaOk = AccesoSql.GuardarProducto(auxProducto);
                 }
                 if (altaOk)
                 {

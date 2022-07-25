@@ -10,7 +10,7 @@ namespace Tests
         public void VentaExitosa_CuandoElClienteTieneSaldoNecesario_DeberiaSerTrue()
         {
             //Arrange
-            Cliente cliente = new Cliente("Juan", "Gonzalez", 300);
+            Cliente cliente = new Cliente("Juan", "Gonzalez", 300, 0);
             Postre producto = new Postre("McFrido", "Pote", 5, 120, 250, Entidades.Enumerados.ETipoProducto.Helado, 2);
             Empleado empleado = new Empleado("Juan", "1234");
             Venta ventaAux;
@@ -27,7 +27,7 @@ namespace Tests
         public void VentaFallida_CuandoNoAlcanzanLasUnidades_DeberiaLanzarProductoSinUnidadesException()
         {
             //Arrange
-            Cliente cliente = new Cliente("Juan", "Gonzalez", 500);
+            Cliente cliente = new Cliente("Juan", "Gonzalez", 500, 0);
             Postre producto = new Postre("McFrido", "Pote", 1, 120, 250, Entidades.Enumerados.ETipoProducto.Helado, 2);
             Empleado empleado = new Empleado("Juan", "1234");
             Venta ventaAux;
@@ -41,7 +41,7 @@ namespace Tests
         public void VentaFallida_CuandoElClienteNoTieneSaldo_DeberiaLanzarClienteSinDineroException()
         {
             //Arrange
-            Cliente cliente = new Cliente("Juan", "Gonzalez", 0);
+            Cliente cliente = new Cliente("Juan", "Gonzalez", 0, 0);
             Postre producto = new Postre("McFrido", "Pote", 5, 120, 250, Entidades.Enumerados.ETipoProducto.Helado, 2);
             Empleado empleado = new Empleado("Juan", "1234");
             Venta ventaAux;

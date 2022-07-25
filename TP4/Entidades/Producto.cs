@@ -88,10 +88,18 @@ namespace Entidades
         {
         }
 
+        public Producto(int id, string nombre, string descripcion, int cantidad, double precio, float peso, int tipoProductoId)
+        {
+            this.Id = id;
+            this.Nombre = nombre;
+            this.Descripcion = descripcion;
+            this.Cantidad = cantidad;
+            this.Precio = precio;
+            this.Peso = peso;
+            this.TipoProducto = (ETipoProducto)tipoProductoId;
+        }
         public Producto(string nombre, string descripcion, int cantidad, double precio, float peso, ETipoProducto tipoProducto)
         {
-            this.Id = ++currentId;
-            CurrentId = this.Id;
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.Cantidad = cantidad;
@@ -159,19 +167,14 @@ namespace Entidades
         /// <summary>
         /// Carga inicial de productos desde un archivo
         /// </summary>
-        /// <returns></returns>
-        public static bool CargaProductosInicial()
+        public static void CargaProductosInicial()
         {
-            Serializador<List<Producto>> serializador = new Serializador<List<Producto>>(IGuardable<List<Producto>>.ETipoArchivo.XML);
-            string ruta = Environment.CurrentDirectory;
-            ruta += @"\ArchivosIniciales";
-            string path = ruta + @"\CargaProductosIniciales.xml";
-            List<Producto> clientesJson = serializador.Leer(path);
-            foreach (Producto item in clientesJson)
+            List<Producto> productos = AccesoSql.LeerProductos();
+            Producto.Productos.Clear();
+            foreach (Producto producto in productos)
             {
-                Producto.Productos.Add(item);
+                Producto.Productos.Add(producto);
             }
-            return true;
         }
     }
 }

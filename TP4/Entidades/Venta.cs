@@ -183,12 +183,25 @@ namespace Entidades
                 {
                     Id = venta.id,
                     Cliente = venta.Cliente.Nombre,
-                    Producto = venta.Producto.Descripcion,
+                    Producto = venta.Producto.Nombre,
                     venta.CantidadProductos,
                     venta.TotalAPagar
                 });
             }
             return ventas;
+        }
+
+        /// <summary>
+        /// Carga inicialmente clientes desde un archivo 
+        /// </summary>
+        public static void CargaVentasInicial()
+        {
+            List<Venta> ventas = AccesoSql.LeerVentas();
+            Venta.Ventas.Clear();
+            foreach (Venta venta in ventas)
+            {
+                Venta.Ventas.Add(venta);
+            }
         }
     }
 }

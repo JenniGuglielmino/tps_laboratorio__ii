@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Entidades
 {
@@ -53,8 +54,6 @@ namespace Entidades
         }
         public Cliente()
         {
-            currentId++;
-            this.id = currentId;
         }
         /// <summary>
         /// Contructor con parametros
@@ -62,12 +61,26 @@ namespace Entidades
         /// <param name="nombre">Nombre del cliente</param>
         /// <param name="apellido">Apellido del cliente</param>
         /// <param name="saldo">Saldo con el que cuenta el cliente</param>
-        public Cliente(string nombre, string apellido, double saldo): this()
+        public Cliente(int id, string nombre, string apellido, double saldo, int puntos)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.saldo = saldo;
+            this.puntos = puntos;
+        }
+        /// <summary>
+        /// Contructor con parametros
+        /// </summary>
+        /// <param name="nombre">Nombre del cliente</param>
+        /// <param name="apellido">Apellido del cliente</param>
+        /// <param name="saldo">Saldo con el que cuenta el cliente</param>
+        public Cliente(string nombre, string apellido, double saldo, int puntos)
         {
             this.nombre = nombre;
             this.apellido = apellido;
             this.saldo = saldo;
-            
+            this.puntos = puntos;
         }
         /// <summary>
         /// Contructor estatico
@@ -121,14 +134,11 @@ namespace Entidades
         /// </summary>
         public static void CargaClientesInicial()
         {
-            Serializador<List<Cliente>> serializador = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);
-            string ruta = Environment.CurrentDirectory;
-            ruta += @"\ArchivosIniciales";
-            string path = ruta + @"\CargaClientesInicial.json";
-            List<Cliente> clientesJson = serializador.Leer(path);
-            foreach (Cliente item in clientesJson)
+            List<Cliente> clientes = AccesoSql.LeerClientes();
+            Cliente.Clientes.Clear();
+            foreach (Cliente cliente in clientes)
             {
-                Cliente.Clientes.Add(item);
+                Cliente.Clientes.Add(cliente);
             }
         }
     }

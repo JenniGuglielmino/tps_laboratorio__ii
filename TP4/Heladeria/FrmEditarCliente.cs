@@ -43,13 +43,14 @@ namespace Heladeria
             }
             else
             {
-                Cliente auxCliente = new Cliente(nombre, apellido, saldo);
+                Cliente auxCliente = new Cliente(nombre, apellido, saldo, 0);
                 auxCliente.Id = clienteSeleccionado.Id;
                 for (int i = 0; i < Cliente.Clientes.Count; i++)
                 {
                     if (Cliente.Clientes[i] == clienteSeleccionado)
                     {
                         Cliente.Clientes[i] = auxCliente;
+                        AccesoSql.ModificarCliente(auxCliente);
                         MessageBox.Show("Cliente editado con exito",
                                     "Operacion exitosa",
                                     MessageBoxButtons.OK);

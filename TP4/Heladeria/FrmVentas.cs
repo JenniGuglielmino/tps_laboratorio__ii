@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Heladeria
@@ -17,6 +18,7 @@ namespace Heladeria
 
         void CargarVentas()
         {
+            Venta.CargaVentasInicial();
             if (Venta.Ventas.Count > 0)
             {
                 dgvVentas.DataSource = Venta.ListarVentas();
