@@ -49,15 +49,28 @@ namespace Heladeria
                 {
                     if (Cliente.Clientes[i] == clienteSeleccionado)
                     {
-                        Cliente.Clientes[i] = auxCliente;
-                        AccesoSql.ModificarCliente(auxCliente);
-                        MessageBox.Show("Cliente editado con exito",
-                                    "Operacion exitosa",
-                                    MessageBoxButtons.OK);
-                        break;
+                        try
+                        {
+                            AccesoSql.ModificarCliente(auxCliente);
+                            MessageBox.Show("Cliente editado con exito",
+                                        "Operacion exitosa",
+                                        MessageBoxButtons.OK);
+                            this.Close();
+                        }
+                        catch (ErrorSqlException ex)
+                        {
+                            MessageBox.Show(ex.Message,
+                                      "Error",
+                                      MessageBoxButtons.OK);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message,
+                                      "Error",
+                                      MessageBoxButtons.OK);
+                        }
                     }
                 }
-                this.Close();
             }
         }
 

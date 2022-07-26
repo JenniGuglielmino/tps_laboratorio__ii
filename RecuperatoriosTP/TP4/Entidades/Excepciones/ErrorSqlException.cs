@@ -6,7 +6,7 @@ namespace Entidades
     /// <summary>
     /// Exepcion que se lanza si ocurrio un error con sql
     /// </summary>
-    internal class ErrorSqlException : Exception
+    public class ErrorSqlException : Exception
     {
         public ErrorSqlException()
         {

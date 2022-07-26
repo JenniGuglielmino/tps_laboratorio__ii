@@ -46,11 +46,21 @@ namespace Heladeria
         }
         void CargarClientes()
         {
-            Cliente.CargaClientesInicial();
-            if (Cliente.Clientes.Count > 0)
+            try
             {
-                dgvListaClientes.DataSource = new List<Cliente>(Cliente.Clientes);
+                Cliente.CargaClientesInicial();
+                if (Cliente.Clientes.Count > 0)
+                {
+                    dgvListaClientes.DataSource = new List<Cliente>(Cliente.Clientes);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                 "Error",
+                                 MessageBoxButtons.OK);
+            }
+            
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)

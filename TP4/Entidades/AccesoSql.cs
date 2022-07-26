@@ -28,6 +28,7 @@ namespace Entidades
         {
             try
             {
+                command.Parameters.Clear();
                 connection.Open();
                 command.CommandText = $"INSERT INTO Ventas VALUES(@CLIENTEID, @PRODUCTOID, @CANTIDADPRODUCTO)";
                 command.Parameters.AddWithValue("@CLIENTEID", venta.Cliente.Id);
@@ -128,6 +129,7 @@ namespace Entidades
         {
             try
             {
+                command.Parameters.Clear();
                 connection.Open();
                 command.CommandText = $"INSERT INTO Clientes VALUES(@NOMBRE, @APELLIDO , @SALDO, @PUNTOS)";
                 command.Parameters.AddWithValue("@NOMBRE", cliente.Nombre);
@@ -158,6 +160,7 @@ namespace Entidades
             try
             {
                 connection.Open();
+                command.Parameters.Clear();
                 command.CommandText = $"UPDATE Clientes SET Nombre = @NOMBRE, Apellido = @APELLIDO, Saldo = @SALDO, Puntos = @PUNTOS WHERE Id = @ID";
                 command.Parameters.AddWithValue("@ID", cliente.Id);
                 command.Parameters.AddWithValue("@NOMBRE", cliente.Nombre);
@@ -188,6 +191,7 @@ namespace Entidades
             try
             {
                 connection.Open();
+                command.Parameters.Clear();
                 command.CommandText = "Select * FROM Productos";
                 using (SqlDataReader dataReader = command.ExecuteReader())
                 {

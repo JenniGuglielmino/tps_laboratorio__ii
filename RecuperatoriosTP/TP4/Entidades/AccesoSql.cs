@@ -93,7 +93,7 @@ namespace Entidades
         /// <returns>Retorna la lista de las Clientes</returns>
         public static List<Cliente> LeerClientes()
         {
-            List<Cliente> ventas = new List<Cliente>();
+            List<Cliente> clientes = new List<Cliente>();
             try
             {
                 connection.Open();
@@ -102,11 +102,10 @@ namespace Entidades
                 {
                     while (dataReader.Read())
                     {
-                        ventas.Add(new Cliente(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Apellido"].ToString(), Convert.ToDouble(dataReader["Saldo"]), Convert.ToInt32(dataReader["Puntos"])));
+                       clientes.Add(new Cliente(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Apellido"].ToString(), Convert.ToDouble(dataReader["Saldo"]), Convert.ToInt32(dataReader["Puntos"])));
                     }
                 }
-                connection.Close();
-                return ventas;
+                return clientes;
             }
             catch (SqlException)
             {
@@ -114,8 +113,11 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-
                 throw new Exception("No pudo obtenerse la lista", ex);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -175,6 +177,10 @@ namespace Entidades
             catch (Exception ex)
             {
                 throw new Exception("No pudo modificarse", ex);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 

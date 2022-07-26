@@ -34,20 +34,19 @@ namespace Heladeria
                 apellido = this.txtApellidoCliente.Text;
                 saldo = double.Parse(this.txtSaldoCliente.Text);
                 Cliente auxCliente = new Cliente(nombre, apellido, saldo, 0);
-                bool altaOk = AccesoSql.GuardarCliente(auxCliente);
-                if (altaOk)
+                try
                 {
+                    AccesoSql.GuardarCliente(auxCliente);
                     MessageBox.Show("Alta de cliente exitosa",
                                               "Carga exitosa",
                                               MessageBoxButtons.OK);
                 }
-                else
+                catch (ErrorSqlException ex)
                 {
-                    MessageBox.Show("Error en la carga del cliente",
-                                              "Error",
-                                              MessageBoxButtons.OK);
+                    MessageBox.Show(ex.Message,
+                                     "Error",
+                                     MessageBoxButtons.OK);
                 }
-                this.Close();
             }
         }
 
