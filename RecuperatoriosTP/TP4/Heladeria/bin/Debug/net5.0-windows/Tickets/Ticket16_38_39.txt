@@ -1,0 +1,10 @@
+Cliente: Jennifer
+Producto: Baño de chocolate
+Unidades: 3
+Precio Unitario: 600
+Puntos acumulados: 36
+----------------------------
+Total a pagar: 1800
+¡Gracias por tu compra!
+ 
+Frido

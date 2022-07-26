@@ -1,0 +1,10 @@
+Cliente: Jennifer
+Producto: Sabor chocolate
+Unidades: 1
+Precio Unitario: 200
+Puntos acumulados: 22
+----------------------------
+Total a pagar: 200
+¡Gracias por tu compra!
+ 
+Frido
