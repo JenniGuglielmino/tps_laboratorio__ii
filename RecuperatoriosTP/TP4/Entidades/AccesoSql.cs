@@ -19,6 +19,7 @@ namespace Entidades
             command.CommandType = System.Data.CommandType.Text;
             command.Connection = connection;
         }
+
         /// <summary>
         /// Guarda una venta en la db
         /// </summary>
@@ -29,6 +30,7 @@ namespace Entidades
             try
             {
                 connection.Open();
+                command.Parameters.Clear();
                 command.CommandText = $"INSERT INTO Ventas VALUES(@CLIENTEID, @PRODUCTOID, @CANTIDADPRODUCTO)";
                 command.Parameters.AddWithValue("@CLIENTEID", venta.Cliente.Id);
                 command.Parameters.AddWithValue("@PRODUCTOID", venta.Producto.Id);
@@ -87,6 +89,7 @@ namespace Entidades
                 throw new Exception("No pudo obtenerse la lista", ex);
             }
         }
+
         /// <summary>
         /// Enlista los clientes que esten en la base
         /// </summary>
@@ -187,9 +190,9 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Enlista las ventas que esten en la base
+        /// Enlista los productos que esten en la base
         /// </summary>
-        /// <returns>Retorna la lista de las ventas</returns>
+        /// <returns>Retorna la lista de productos</returns>
         public static List<Producto> LeerProductos()
         {
             List<Producto> productos = new List<Producto>();
@@ -207,13 +210,13 @@ namespace Entidades
                             switch (tipoProducto)
                             {
                                 case (ETipoProducto.Postre):
-                                    productos.Add(new Postre(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Descripcion"].ToString(), Convert.ToInt32(dataReader["Cantidad"]), Convert.ToDouble(dataReader["Precio"]), float.Parse(dataReader["Peso"].ToString()), Convert.ToInt32(dataReader["Id_TipoProducto"]), Convert.ToInt32(dataReader["CantidadDeProductoPorUnidad"])));
+                                    productos.Add(new Postre(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Descripcion"].ToString(), Convert.ToInt32(dataReader["Cantidad"]), Convert.ToDouble(dataReader["Precio"]), float.Parse(dataReader["Peso"].ToString()), Convert.ToInt32(dataReader["Id_TipoProducto"]), Convert.ToInt32(dataReader["CantidadDeProductoPorUnidad"]), Convert.ToBoolean(dataReader["Eliminado"])));
                                     break;
                                 case (ETipoProducto.Helado):
-                                    productos.Add(new Helado(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Descripcion"].ToString(), Convert.ToInt32(dataReader["Cantidad"]), Convert.ToDouble(dataReader["Precio"]), float.Parse(dataReader["Peso"].ToString()), Convert.ToInt32(dataReader["Id_TipoProducto"]), Convert.ToInt32(dataReader["CantidadDeProductoPorUnidad"])));
+                                    productos.Add(new Helado(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Descripcion"].ToString(), Convert.ToInt32(dataReader["Cantidad"]), Convert.ToDouble(dataReader["Precio"]), float.Parse(dataReader["Peso"].ToString()), Convert.ToInt32(dataReader["Id_TipoProducto"]), Convert.ToInt32(dataReader["CantidadDeProductoPorUnidad"]), Convert.ToBoolean(dataReader["Eliminado"])));
                                     break;
                                 case (ETipoProducto.Pizza_congelada):
-                                    productos.Add(new PizzaCongelada(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Descripcion"].ToString(), Convert.ToInt32(dataReader["Cantidad"]), Convert.ToDouble(dataReader["Precio"]), float.Parse(dataReader["Peso"].ToString()), Convert.ToInt32(dataReader["Id_TipoProducto"]), Convert.ToInt32(dataReader["CantidadDeProductoPorUnidad"])));
+                                    productos.Add(new PizzaCongelada(Convert.ToInt32(dataReader["Id"]), dataReader["Nombre"].ToString(), dataReader["Descripcion"].ToString(), Convert.ToInt32(dataReader["Cantidad"]), Convert.ToDouble(dataReader["Precio"]), float.Parse(dataReader["Peso"].ToString()), Convert.ToInt32(dataReader["Id_TipoProducto"]), Convert.ToInt32(dataReader["CantidadDeProductoPorUnidad"]), Convert.ToBoolean(dataReader["Eliminado"])));
                                     break;
                             }
                         }
@@ -254,6 +257,8 @@ namespace Entidades
                 command.Parameters.AddWithValue("@PRECIO", producto.Precio);
                 command.Parameters.AddWithValue("@PESO", producto.Peso);
                 command.Parameters.AddWithValue("@TIPOPRODUCTOID", ((int)producto.TipoProducto));
+                command.Parameters.AddWithValue("@ELIMINADO", producto.Eliminado);
+
                 if (producto is Helado)
                 {
                     command.Parameters.AddWithValue("@CANTPRODUCTOPORU", (producto as Helado).Bochas);
@@ -292,13 +297,14 @@ namespace Entidades
                 connection.Open();
                 command.Parameters.Clear();
                 command.CommandText = $"INSERT INTO Productos VALUES(@NOMBRE, @DESCRIPCION , @CANTIDAD, " +
-                                      $"@PRECIO, @PESO, @TIPOPRODUCTOID, @CANTPRODUCTOPORU)";
+                                      $"@PRECIO, @PESO, @TIPOPRODUCTOID, @CANTPRODUCTOPORU, @ELIMINADO)";
                 command.Parameters.AddWithValue("@NOMBRE", producto.Nombre);
                 command.Parameters.AddWithValue("@DESCRIPCION", producto.Descripcion);
                 command.Parameters.AddWithValue("@CANTIDAD", producto.Cantidad);
                 command.Parameters.AddWithValue("@PRECIO", producto.Precio);
                 command.Parameters.AddWithValue("@PESO", producto.Peso);
                 command.Parameters.AddWithValue("@TIPOPRODUCTOID", ((int)producto.TipoProducto));
+                command.Parameters.AddWithValue("@ELIMINADO", producto.Eliminado);
                 if (producto is Helado)
                 {
                     command.Parameters.AddWithValue("@CANTPRODUCTOPORU", (producto as Helado).Bochas);
@@ -325,17 +331,18 @@ namespace Entidades
             }
         }
         /// <summary>
-        /// Guarda un producto en la db
+        /// Realiza un elminado logico un producto en la db
         /// </summary>
-        /// <param name="producto">Producto a guardar</param>
-        /// <returns>true si pudo guardarse, false si no se pudo</returns>
+        /// <param name="producto">Producto a eliminar</param>
+        /// <returns>true si pudo eliminarse, false si no se pudo</returns>
         public static bool EliminarProducto(Producto producto)
         {
             try
             {
                 connection.Open();
                 command.Parameters.Clear();
-                command.CommandText = $"DELETE from Productos WHERE Id = @ID";
+                command.CommandText = $"UPDATE Productos SET Eliminado = @ELIMINADO WHERE Id = @ID";
+                command.Parameters.AddWithValue("@Eliminado", 1);
                 command.Parameters.AddWithValue("@ID", producto.Id);
                 command.ExecuteNonQuery();
                 connection.Close();

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProducto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Producto xsi:type="Postre">
+    <Id>1</Id>
+    <Nombre>Casatta</Nombre>
+    <Descripcion>Sabor chocolate</Descripcion>
+    <Cantidad>99</Cantidad>
+    <Precio>200</Precio>
+    <Peso>200</Peso>
+    <TipoProducto>Postre</TipoProducto>
+    <Eliminado>false</Eliminado>
+  </Producto>
+</ArrayOfProducto>

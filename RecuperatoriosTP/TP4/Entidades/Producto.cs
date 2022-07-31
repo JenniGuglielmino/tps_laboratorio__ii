@@ -18,9 +18,9 @@ namespace Entidades
         private double precio;
         private float peso;
         private static List<Producto> productos;
+        private static List<Producto> productosFiltrados;
         ETipoProducto tipoProducto;
-        private static int currentId;
-
+        private bool eliminado;
 
         public int Id
         {
@@ -28,11 +28,6 @@ namespace Entidades
             set { id = value; }
         }
 
-        public static int CurrentId
-        {
-            get { return currentId; }
-            set { currentId = value; }
-        }
         public string Nombre
         {
             get { return nombre; }
@@ -65,6 +60,13 @@ namespace Entidades
             set { productos = value; }
         }
 
+        [XmlIgnore]
+        public static List<Producto> ProductosFiltrados
+        {
+            get { return productosFiltrados; }
+            set { productosFiltrados = value; }
+        }
+
         public abstract string CantidadDeProductoPorUnidad { get; }
 
         public ETipoProducto TipoProducto
@@ -79,16 +81,38 @@ namespace Entidades
             }
         }
 
+        public bool Eliminado
+        {
+            get { return eliminado; }
+            set { eliminado = value; }
+        }
+
+        /// <summary>
+        /// Constructor estatico para inicializar listas estaticas
+        /// </summary>
         static Producto()
         {
             Productos = new List<Producto>();
+            ProductosFiltrados = new List<Producto>();
         }
-
+        /// <summary>
+        /// Constructor sin parametros para serializar
+        /// </summary>
         public Producto()
         {
         }
-
-        public Producto(int id, string nombre, string descripcion, int cantidad, double precio, float peso, int tipoProductoId)
+        /// <summary>
+        /// Constructor para leer desde la base
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="descripcion"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="precio"></param>
+        /// <param name="peso"></param>
+        /// <param name="tipoProductoId"></param>
+        /// <param name="eliminado"></param>
+        public Producto(int id, string nombre, string descripcion, int cantidad, double precio, float peso, int tipoProductoId, bool eliminado)
         {
             this.Id = id;
             this.Nombre = nombre;
@@ -97,7 +121,17 @@ namespace Entidades
             this.Precio = precio;
             this.Peso = peso;
             this.TipoProducto = (ETipoProducto)tipoProductoId;
+            this.Eliminado = eliminado;
         }
+        /// <summary>
+        /// Constructor para guardar en la base
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="descripcion"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="precio"></param>
+        /// <param name="peso"></param>
+        /// <param name="tipoProducto"></param>
         public Producto(string nombre, string descripcion, int cantidad, double precio, float peso, ETipoProducto tipoProducto)
         {
             this.Nombre = nombre;
@@ -145,38 +179,31 @@ namespace Entidades
             listaProductos.Add(producto);
             return true;
         }
+
         /// <summary>
-        /// Quita a un producto existente de una lista
-        /// </summary>
-        /// <param name="listaProductos">Lista de productos</param>
-        /// <param name="Producto">Producto a quitar</param>
-        /// <returns>True si pudo quitarlo, false si no pudo</returns>
-        public static bool operator -(List<Producto> listaProductos, Producto Producto)
-        {
-            bool removeOk = false;
-            foreach (Producto prd in listaProductos)
-            {
-                if (prd == Producto)
-                {
-                    listaProductos.Remove(prd);
-                    return true;
-                }
-            }
-            return removeOk;
-        }
-        /// <summary>
-        /// Carga inicial de productos desde un archivo
+        /// Carga inicial de productos desde la base de datos
+        /// Carga la lista de productos y la lista filtrada sin los eliminados
         /// </summary>
         public static void CargaProductosInicial()
         {
             List<Producto> productos = AccesoSql.LeerProductos();
             Producto.Productos.Clear();
+            Producto.ProductosFiltrados.Clear();
             foreach (Producto producto in productos)
             {
                 Producto.Productos.Add(producto);
+                if (!producto.Eliminado)
+                {
+                    Producto.ProductosFiltrados.Add(producto);
+                }
             }
         }
-
+        /// <summary>
+        /// Metodo de implementacion de interfaz para verificar si hay stock suficiente
+        /// (Quiza es una implementacion innecesaria pero la agregue para mostrar uso de interfaces)
+        /// </summary>
+        /// <param name="unidades">Cantidad de unidades</param>
+        /// <returns>True si hay stock, false si no alcanzan las unidades</returns>
         public bool HayStock(int unidades)
         {
             return Cantidad >= unidades;

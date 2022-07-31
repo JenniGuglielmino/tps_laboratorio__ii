@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Entidades
 {
@@ -12,18 +10,11 @@ namespace Entidades
         private int puntos;
         private double saldo;
         private static List<Cliente> clientes;
-        private static int currentId;
 
         public int Id
         {
             get { return id; }
             set { id = value; }
-        }
-
-        public static int CurrentId
-        {
-            get { return currentId; }
-            set { currentId = value; }
         }
 
         public string Nombre
@@ -52,25 +43,25 @@ namespace Entidades
             get { return clientes; }
             set { clientes = value; }
         }
+        /// <summary>
+        /// Constructor sin parametros para serializar
+        /// </summary>
         public Cliente()
         {
         }
         /// <summary>
-        /// Contructor con parametros
+        /// Contructor con parametros 
         /// </summary>
         /// <param name="nombre">Nombre del cliente</param>
         /// <param name="apellido">Apellido del cliente</param>
         /// <param name="saldo">Saldo con el que cuenta el cliente</param>
         public Cliente(int id, string nombre, string apellido, double saldo, int puntos)
+            :this(nombre, apellido, saldo, puntos)
         {
             this.id = id;
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.saldo = saldo;
-            this.puntos = puntos;
         }
         /// <summary>
-        /// Contructor con parametros
+        /// Contructor con parametros para crear en la base
         /// </summary>
         /// <param name="nombre">Nombre del cliente</param>
         /// <param name="apellido">Apellido del cliente</param>
@@ -109,28 +100,9 @@ namespace Entidades
         {
             return !(cliente1 == cliente2);
         }
+
         /// <summary>
-        /// Agrega un cliente a la lista de clientes si este no existe
-        /// </summary>
-        /// <param name="clientes">Lista de clientes</param>
-        /// <param name="cliente">Cliente a agregar</param>
-        /// <returns>True si pudo agregarlo, false si no pudo</returns>
-        public static bool operator +(List<Cliente> clientes, Cliente cliente)
-        {
-            bool altaOk = false;
-            foreach (Cliente cliente1 in clientes)
-            {
-                if (cliente1 == cliente)
-                {
-                    return false;
-                }
-            }
-            clientes.Add(cliente);
-            altaOk = true;
-            return altaOk;
-        }
-        /// <summary>
-        /// Carga inicialmente clientes desde un archivo 
+        /// Carga clientes a la lista estatica leyendolos desde la base
         /// </summary>
         public static void CargaClientesInicial()
         {

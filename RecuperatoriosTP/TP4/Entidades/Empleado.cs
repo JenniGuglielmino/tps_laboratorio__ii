@@ -7,21 +7,16 @@ namespace Entidades
     {
         public event Action ContarVentasEmpleado;
 
-        int id;
         string usuario;
         string contrasenia;
         private static List<Empleado> empleados;
 
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
+
         public string Contrasenia
         {
             get { return contrasenia; }
@@ -86,7 +81,7 @@ namespace Entidades
         public bool Vender(Producto producto, Cliente cliente, int unidades, out Venta outVenta)
         {
             Venta auxVenta = new Venta(cliente, producto, unidades);
-            bool altaOk = false;
+            bool altaOk;
             if (cliente.Saldo >= auxVenta.TotalAPagar)
             {
                 if ((producto as IStockeable).HayStock(unidades))
@@ -99,6 +94,7 @@ namespace Entidades
                         producto.Cantidad -= unidades;
                         cliente.Puntos += auxVenta.CargarPuntos(auxVenta.TotalAPagar);
                         AccesoSql.ModificarCliente(cliente);
+                        AccesoSql.ModificarProducto(producto);
                     }
                 }
                 else

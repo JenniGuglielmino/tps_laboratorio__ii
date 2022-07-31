@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Environment;
 
@@ -24,14 +25,16 @@ namespace Heladeria
             this.toolTip2.SetToolTip(this.btnAgregarStock, "Agregar");
             this.toolTip3.SetToolTip(this.btnEditarStock, "Editar");
             this.toolTip4.SetToolTip(this.btnEliminarStock, "Eliminar");
+
         }
 
         void CargarProductos()
         {
             Producto.CargaProductosInicial();
-            if (Producto.Productos.Count > 0)
+            if (Producto.ProductosFiltrados.Count > 0)
             {
-                dgvStock.DataSource = new List<Producto>(Producto.Productos);
+                dgvStock.DataSource = new List<Producto>(Producto.ProductosFiltrados);
+                this.dgvStock.Columns[8].Visible = false;
             }
         }
 
@@ -83,6 +86,7 @@ namespace Heladeria
                         {
                             if (AccesoSql.EliminarProducto(prdt))
                             {
+
                                 MessageBox.Show("Producto eliminado",
                                          "Operacion exitosa",
                                          MessageBoxButtons.OK);
@@ -105,11 +109,30 @@ namespace Heladeria
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            Serializador<List<Producto>> srl = new Serializador<List<Producto>>(IGuardable<List<Producto>>.ETipoArchivo.XML);
-            string ruta = CurrentDirectory;
-            ruta += @"\ArchivosIniciales";
-            string path = ruta + @"\CargaProductosIniciales.xml";
-            srl.Escribir(Producto.Productos, path);
+            try
+            {
+                Task serializar = new Task(() =>
+                {
+                    Serializador<List<Producto>> srl = new Serializador<List<Producto>>(IGuardable<List<Producto>>.ETipoArchivo.XML);
+                    string ruta = CurrentDirectory;
+                    ruta += @"\Archivos";
+                    string path = ruta + @"\ListaDeProductos" + DateTime.Now.ToString("dd-MM-yyyy") + ".xml";
+                    srl.Escribir(Producto.Productos, path);
+                });
+                serializar.Start();
+                serializar.Wait();
+                MessageBox.Show("Descarga exitosa",
+                                           "Operacion exitosa",
+                                           MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException.ToString(),
+                                                "Error",
+                                                MessageBoxButtons.OK);
+            }
+
         }
+
     }
 }

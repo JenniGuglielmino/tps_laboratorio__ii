@@ -1,6 +1,4 @@
-﻿using Entidades.Enumerados;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public interface IGuardable<T>
     {

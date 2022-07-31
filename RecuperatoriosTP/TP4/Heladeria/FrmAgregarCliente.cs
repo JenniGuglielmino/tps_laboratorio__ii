@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Heladeria
@@ -33,7 +34,8 @@ namespace Heladeria
                 nombre = this.txtNombreCliente.Text;
                 apellido = this.txtApellidoCliente.Text;
                 saldo = double.Parse(this.txtSaldoCliente.Text);
-                Cliente auxCliente = new Cliente(nombre, apellido, saldo, 0);
+               
+                Cliente auxCliente = new Cliente(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombre), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(apellido), saldo, 0);
                 try
                 {
                     AccesoSql.GuardarCliente(auxCliente);

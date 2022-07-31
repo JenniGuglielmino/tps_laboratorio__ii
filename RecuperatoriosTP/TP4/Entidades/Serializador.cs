@@ -57,9 +57,9 @@ namespace Entidades
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Ocurrio un error al Serializar", ex);
+                throw new Exception("Ocurrio un error al Serializar");
             }
         }
         /// <summary>

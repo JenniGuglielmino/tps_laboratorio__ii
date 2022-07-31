@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Entidades.Enumerados;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Heladeria
@@ -47,17 +48,17 @@ namespace Heladeria
                 unidadesPorCaja = int.Parse(this.txtUnidades.Text);
                 if (tipoProducto.ToString() == "Postre")
                 {
-                    Postre auxProducto = new Postre(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
+                    Postre auxProducto = new Postre(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombre), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(descripcion), cantidad, precio, peso, tipoProducto, unidadesPorCaja);
                     altaOk = AccesoSql.GuardarProducto(auxProducto);
                 }
                 else if (tipoProducto.ToString() == "Helado")
                 {
-                    Helado auxProducto = new Helado(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
+                    Helado auxProducto = new Helado(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombre), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(descripcion), cantidad, precio, peso, tipoProducto, unidadesPorCaja);
                     altaOk = AccesoSql.GuardarProducto(auxProducto);
                 }
                 else
                 {
-                    PizzaCongelada auxProducto = new PizzaCongelada(nombre, descripcion, cantidad, precio, peso, tipoProducto, unidadesPorCaja);
+                    PizzaCongelada auxProducto = new PizzaCongelada(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombre), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(descripcion), cantidad, precio, peso, tipoProducto, unidadesPorCaja);
                     altaOk = AccesoSql.GuardarProducto(auxProducto);
                 }
                 if (altaOk)

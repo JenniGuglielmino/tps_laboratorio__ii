@@ -45,6 +45,7 @@ namespace Heladeria
             // 
             // dgvStock
             // 
+            this.dgvStock.AllowUserToDeleteRows = false;
             this.dgvStock.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

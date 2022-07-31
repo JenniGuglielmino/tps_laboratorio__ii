@@ -60,7 +60,7 @@ namespace Heladeria
                                  "Error",
                                  MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
@@ -85,20 +85,28 @@ namespace Heladeria
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            Task serializar = new Task(() =>
+            try
             {
-                Serializador<List<Cliente>> srl = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);
-                string ruta = CurrentDirectory;
-                ruta += @"\ArchivosIniciales";
-                string path = ruta + @"\CargaClientesInicial.json";
-                srl.Escribir(Cliente.Clientes, path);
-            });
-            serializar.Start();
-            serializar.Wait();
-            MessageBox.Show("Descarga exitosa",
-                                       "Operacion exitosa",
-                                       MessageBoxButtons.OK);
-
+                Task serializar = new Task(() =>
+                {
+                    Serializador<List<Cliente>> srl = new Serializador<List<Cliente>>(IGuardable<List<Cliente>>.ETipoArchivo.JSON);
+                    string ruta = CurrentDirectory;
+                    ruta += @"\Archivos";
+                    string path = ruta + @"\ListaDeClientes" + DateTime.Now.ToString("dd-MM-yyyy") + ".json";
+                    srl.Escribir(Cliente.Clientes, path);
+                });
+                serializar.Start();
+                serializar.Wait();
+                MessageBox.Show("Descarga exitosa",
+                                           "Operacion exitosa",
+                                           MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                                "Error",
+                                                MessageBoxButtons.OK);
+            }
         }
 
         private void btnCanjear_Click(object sender, EventArgs e)

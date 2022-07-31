@@ -49,18 +49,23 @@ namespace Entidades
                 return Math.Round(this.Producto.Precio * this.CantidadProductos, 2, MidpointRounding.AwayFromZero);
             }
         }
-
+        /// <summary>
+        /// Constructor estatico para inicializar la lista estatica
+        /// </summary>
         static Venta()
         {
             Ventas = new List<Venta>();
         }
+        /// <summary>
+        /// Constructor sin parametro
+        /// </summary>
         public Venta()
         {
 
         }
 
         /// <summary>
-        /// Constructor con id autoincremental para la creacion
+        /// Constructor de venta para guardar en la base
         /// </summary>
         /// <param name="producto"></param>
         /// <param name="cliente"></param>
@@ -143,7 +148,7 @@ namespace Entidades
             sb.AppendLine($"Producto: {venta.Producto.Nombre}\r");
             sb.AppendLine($"Unidades: {venta.CantidadProductos}\r");
             sb.AppendLine($"Precio Unitario: {venta.Producto.Precio}\r");
-            sb.AppendLine($"Puntos acumulados: {venta.Cliente.Puntos + venta.CargarPuntos(venta.TotalAPagar)}\r");
+            sb.AppendLine($"Puntos acumulados: {venta.CargarPuntos(venta.TotalAPagar)}\r");
             sb.AppendLine($"----------------------------");
             sb.AppendLine($"Total a pagar: {venta.TotalAPagar}\r");
             sb.AppendLine($"Fuiste atendido por: {NucleoAplicacion.EmpleadoLogueado.Usuario}\r");

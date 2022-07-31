@@ -21,7 +21,7 @@ namespace Heladeria
 
         private void FrmCanje_Load(object sender, EventArgs e)
         {
-            foreach (Producto item in Producto.Productos)
+            foreach (Producto item in Producto.ProductosFiltrados)
             {
                 if (item is ICanjeable)
                 {
@@ -44,7 +44,7 @@ namespace Heladeria
         {
             this.cmbNombreProducto.Items.Clear();
             this.cmbNombreProducto.Text = "";
-            foreach (Producto prod in Producto.Productos)
+            foreach (Producto prod in Producto.ProductosFiltrados)
             {
                 if (prod.TipoProducto.ToString() == this.cmbPremios.Text)
                 {
@@ -58,7 +58,7 @@ namespace Heladeria
         {
             bool canjeOk = false;
             Producto productoSeleccionado = null;
-            foreach (Producto prod in Producto.Productos)
+            foreach (Producto prod in Producto.ProductosFiltrados)
             {
                 if (prod.TipoProducto.ToString() == this.cmbPremios.Text && prod.Nombre == this.cmbNombreProducto.Text)
                 {

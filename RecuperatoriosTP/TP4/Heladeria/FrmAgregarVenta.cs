@@ -15,7 +15,8 @@ namespace Heladeria
 
         private void FrmAgregarVenta_Load(object sender, EventArgs e)
         {
-            dgvProductos.DataSource = Producto.Productos;
+            dgvProductos.DataSource = Producto.ProductosFiltrados;
+            dgvProductos.Columns[8].Visible = false;
             dgvClientes.DataSource = Cliente.Clientes;
             this.txtUnidades.Text = "0";
         }
