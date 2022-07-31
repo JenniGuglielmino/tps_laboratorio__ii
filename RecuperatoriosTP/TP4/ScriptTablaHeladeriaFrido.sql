@@ -25,7 +25,7 @@ Cantidad int not null,
 Precio float not null,
 Peso float not null,
 Id_TipoProducto int not null,
-CantidadDeProductoPorUnidad int not null
+CantidadDeProductoPorUnidad int not null,
 Eliminado bit not null
 )
 insert into Productos(Nombre, Descripcion, Cantidad, Precio, Peso, Id_TipoProducto, CantidadDeProductoPorUnidad) values
