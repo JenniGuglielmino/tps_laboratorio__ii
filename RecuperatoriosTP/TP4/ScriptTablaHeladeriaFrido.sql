@@ -26,9 +26,9 @@ Precio float not null,
 Peso float not null,
 Id_TipoProducto int not null,
 CantidadDeProductoPorUnidad int not null,
-Eliminado bit not null
+Eliminado bit not null,
 )
-insert into Productos(Nombre, Descripcion, Cantidad, Precio, Peso, Id_TipoProducto, CantidadDeProductoPorUnidad) values
+insert into Productos(Nombre, Descripcion, Cantidad, Precio, Peso, Id_TipoProducto, CantidadDeProductoPorUnidad, Eliminado) values
 ('Casatta','Sabor chocolate',100,200,200,1,1, 0),
 ('Almendrado','Crocante mani',100,200,200,1, 1,0),
 ('Integral','Supercongelada',300,600,600,3, 8,0),
