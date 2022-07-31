@@ -26,16 +26,17 @@ Precio float not null,
 Peso float not null,
 Id_TipoProducto int not null,
 CantidadDeProductoPorUnidad int not null
+Eliminado bit not null
 )
 insert into Productos(Nombre, Descripcion, Cantidad, Precio, Peso, Id_TipoProducto, CantidadDeProductoPorUnidad) values
-('Casatta','Sabor chocolate',100,200,200,1,1),
-('Almendrado','Crocante mani',100,200,200,1, 1),
-('Integral','Supercongelada',300,600,600,3, 8),
-('Sundae frutal','Mix frutas',200,300,300,2,4),
-('Super fridito','Leche fortificada',400,300,300,2,3),
-('Jamon','Precocida',400,500,500,3,8),
-('Delicia','Sabor crema',200,600, 600,1,10),
-('Crocantino','Baño de chocolate',200,600, 600,1,10)
+('Casatta','Sabor chocolate',100,200,200,1,1, 0),
+('Almendrado','Crocante mani',100,200,200,1, 1,0),
+('Integral','Supercongelada',300,600,600,3, 8,0),
+('Sundae frutal','Mix frutas',200,300,300,2,4,0),
+('Super fridito','Leche fortificada',400,300,300,2,3,0),
+('Jamon','Precocida',400,500,500,3,8,0),
+('Delicia','Sabor crema',200,600, 600,1,10,0),
+('Crocantino','Baño de chocolate',200,600, 600,1,10,0)
 
 GO 
 CREATE TABLE Ventas(
