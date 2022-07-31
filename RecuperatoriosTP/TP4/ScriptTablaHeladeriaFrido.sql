@@ -56,15 +56,3 @@ insert into TipoProductos(Id_TipoProducto, Nombre) values
 (1,'Postre'),
 (2,'Helado'),
 (3,'Pizza_Congelada')
-
---No pude agregar las claves foraneas
---Error: Could not create constraint or index. See previous errors.(por si me lo pueden explicar)
-
---ALTER TABLE Productos
---ADD FOREIGN KEY (Id_TipoProductos) REFERENCES TipoProductos(Id_TipoProducto);
-
---ALTER TABLE Ventas
---ADD FOREIGN KEY (Id_Producto) REFERENCES Productos(Id);
-
---ALTER TABLE Ventas
---ADD FOREIGN KEY (Id_Cliente) REFERENCES Clientes(Id);
