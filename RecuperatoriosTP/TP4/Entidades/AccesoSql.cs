@@ -165,12 +165,11 @@ namespace Entidades
             {
                 command.Parameters.Clear();
                 connection.Open();
-                command.CommandText = $"UPDATE Clientes SET Nombre = @NOMBRE, Apellido = @APELLIDO, Saldo = @SALDO, Puntos = @PUNTOS WHERE Id = @ID";
+                command.CommandText = $"UPDATE Clientes SET Nombre = @NOMBRE, Apellido = @APELLIDO, Saldo = @SALDO WHERE Id = @ID";
                 command.Parameters.AddWithValue("@ID", cliente.Id);
                 command.Parameters.AddWithValue("@NOMBRE", cliente.Nombre);
                 command.Parameters.AddWithValue("@APELLIDO", cliente.Apellido);
                 command.Parameters.AddWithValue("@SALDO", cliente.Saldo);
-                command.Parameters.AddWithValue("@PUNTOS", cliente.Puntos);
                 command.ExecuteNonQuery();
                 connection.Close();
                 return true;
