@@ -130,6 +130,7 @@ namespace Entidades
         {
             try
             {
+                command.Parameters.Clear();
                 connection.Open();
                 command.CommandText = $"INSERT INTO Clientes VALUES(@NOMBRE, @APELLIDO , @SALDO, @PUNTOS)";
                 command.Parameters.AddWithValue("@NOMBRE", cliente.Nombre);
@@ -159,6 +160,7 @@ namespace Entidades
         {
             try
             {
+                command.Parameters.Clear();
                 connection.Open();
                 command.CommandText = $"UPDATE Clientes SET Nombre = @NOMBRE, Apellido = @APELLIDO, Saldo = @SALDO, Puntos = @PUNTOS WHERE Id = @ID";
                 command.Parameters.AddWithValue("@ID", cliente.Id);

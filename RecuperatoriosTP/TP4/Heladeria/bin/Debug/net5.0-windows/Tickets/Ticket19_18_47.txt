@@ -1,0 +1,11 @@
+Cliente: Jennifer
+Producto: Integral
+Unidades: 1
+Precio Unitario: 600
+Puntos acumulados: 156
+----------------------------
+Total a pagar: 600
+Fuiste atendido por: juan
+¡Gracias por tu compra!
+ 
+Frido

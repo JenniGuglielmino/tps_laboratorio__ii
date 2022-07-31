@@ -65,9 +65,9 @@ namespace Entidades
         /// <param name="producto"></param>
         /// <param name="cliente"></param>
         /// <param name="cantidadProductos"></param>
-        public Venta(Producto producto, Cliente cliente, int cantidadProductos)
+        public Venta(Cliente cliente, Producto producto, int cantidadProductos)
         {
-            PoblarDatosVenta(producto, cliente, cantidadProductos);
+            PoblarDatosVenta(cliente, producto, cantidadProductos);
         }
         /// <summary>
         /// Constructor con id para leer de sql
@@ -76,7 +76,7 @@ namespace Entidades
         /// <param name="producto"></param>
         /// <param name="cliente"></param>
         /// <param name="cantidadProductos"></param>
-        public Venta(int id, int productoId, int clienteId, int cantidadProductos)
+        public Venta(int id,  int clienteId, int productoId, int cantidadProductos)
         {
             this.Id = id;
             Producto producto = null;
@@ -95,7 +95,7 @@ namespace Entidades
                     cliente = cli;
                 }
             }
-            PoblarDatosVenta(producto, cliente, cantidadProductos);
+            PoblarDatosVenta(cliente, producto, cantidadProductos);
         }
         /// <summary>
         /// Funcion para settear los valores comunes de ventas
@@ -103,7 +103,7 @@ namespace Entidades
         /// <param name="producto"></param>
         /// <param name="cliente"></param>
         /// <param name="cantidadProductos"></param>
-        public void PoblarDatosVenta(Producto producto, Cliente cliente, int cantidadProductos)
+        public void PoblarDatosVenta(Cliente cliente, Producto producto, int cantidadProductos)
         {
             this.Producto = producto;
             this.Cliente = cliente;
@@ -192,7 +192,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Carga inicialmente clientes desde un archivo 
+        /// Carga inicialmente ventas desde la db 
         /// </summary>
         public static void CargaVentasInicial()
         {

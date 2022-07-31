@@ -75,6 +75,7 @@ namespace Heladeria
             this.txtSaldoCliente.Name = "txtSaldoCliente";
             this.txtSaldoCliente.Size = new System.Drawing.Size(158, 23);
             this.txtSaldoCliente.TabIndex = 2;
+            this.txtSaldoCliente.TextChanged += new System.EventHandler(this.txtSaldoCliente_TextChanged);
             // 
             // lblNombreCliente
             // 

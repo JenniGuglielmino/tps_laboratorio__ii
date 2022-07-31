@@ -40,6 +40,7 @@ namespace Heladeria
                     MessageBox.Show("Alta de cliente exitosa",
                                               "Carga exitosa",
                                               MessageBoxButtons.OK);
+                    this.Close();
                 }
                 catch (ErrorSqlException ex)
                 {
@@ -50,5 +51,18 @@ namespace Heladeria
             }
         }
 
+        private void txtSaldoCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtSaldoCliente.Text.Length > 0)
+            {
+                if (!int.TryParse(this.txtSaldoCliente.Text, out int numero))
+                {
+                    this.txtSaldoCliente.Text = "0";
+                    MessageBox.Show("Solo estan permitidos numeros",
+                                         "Error",
+                                         MessageBoxButtons.OK);
+                }
+            }
+        }
     }
 }

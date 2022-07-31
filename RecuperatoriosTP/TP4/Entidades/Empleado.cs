@@ -85,7 +85,7 @@ namespace Entidades
         /// <returns>True si pudo realizar la venta, false si no pudo</returns>
         public bool Vender(Producto producto, Cliente cliente, int unidades, out Venta outVenta)
         {
-            Venta auxVenta = new Venta(producto, cliente, unidades);
+            Venta auxVenta = new Venta(cliente, producto, unidades);
             bool altaOk = false;
             if (cliente.Saldo >= auxVenta.TotalAPagar)
             {

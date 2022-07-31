@@ -42,6 +42,8 @@ namespace Heladeria
 
         private void cmbPremios_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.cmbNombreProducto.Items.Clear();
+            this.cmbNombreProducto.Text = "";
             foreach (Producto prod in Producto.Productos)
             {
                 if (prod.TipoProducto.ToString() == this.cmbPremios.Text)
@@ -86,7 +88,7 @@ namespace Heladeria
             }
             catch (ClienteSinPuntosException ex)
             {
-                MessageBox.Show(ex.Message,
+                MessageBox.Show(ex.MensajeError,
                                   "Error",
                                   MessageBoxButtons.OK);
             }
